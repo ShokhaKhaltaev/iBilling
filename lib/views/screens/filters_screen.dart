@@ -122,6 +122,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                         child: CustomButton(
                           buttonText: 'Cancel',
                           color: Color(0xff00A795),
+                          buttonColor: Colors.white,
                           onPressed: (){
                             Navigator.pop(context);
                           },
@@ -132,6 +133,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                         child: CustomButton(
                           buttonText: 'Apply filters',
                           color: Color(0xff00A795),
+                          buttonColor: Colors.white,
                           onPressed: (){
 
                           },

@@ -5,6 +5,7 @@ import 'package:ibilling_app/views/screens/contracts_screen.dart';
 import 'package:ibilling_app/views/screens/filters_screen.dart';
 import 'package:ibilling_app/views/screens/history_screen.dart';
 import 'package:ibilling_app/views/screens/home_page.dart';
+import 'package:ibilling_app/views/screens/individual_contract_screen.dart';
 import 'package:ibilling_app/views/screens/new_invoice_screen.dart';
 import 'package:ibilling_app/views/screens/new_screen.dart';
 import 'package:ibilling_app/views/screens/profile_screen.dart';
@@ -48,6 +49,7 @@ class _MyAppState extends State<MyApp> {
           FiltersScreen.filtersPageRoute: (context) => FiltersScreen(),
           AddContractScreen.addContractPage: (context) => AddContractScreen(),
           NewInvoiceScreen.newInvoicePage: (context) => NewInvoiceScreen(),
+          IndividualContractScreen.individualContractPage: (context) => IndividualContractScreen()
         }
       ),
     );

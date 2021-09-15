@@ -57,6 +57,8 @@ class _AddContractScreenState extends State<AddContractScreen> {
                 width: double.infinity,
                 child: CustomButton(
                   buttonText: 'Save Contract',
+                  color: Color(0xff00A795),
+                  buttonColor: Colors.white,
                   onPressed: (){},
                 ),
               )

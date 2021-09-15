@@ -62,8 +62,11 @@ dialogContent(BuildContext context) {
               Expanded(
                 child: CustomButton(
                   buttonText: 'Cancel',
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.pop(context);
+                  },
                   color: Color(0xff008F7F),
+                  buttonColor: Colors.white,
                 ),
               ),
               SizedBox(width: 10),
@@ -72,6 +75,7 @@ dialogContent(BuildContext context) {
                   buttonText: 'Done',
                   onPressed: (){},
                   color: Color(0xff008F7F),
+                  buttonColor: Colors.white,
                 ),
               )
             ],

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ibilling_app/models/contract_details.dart';
 import 'package:ibilling_app/provider/contract_provider.dart';
+import 'package:ibilling_app/views/screens/individual_contract_screen.dart';
 import 'package:ibilling_app/widgets/calendar_widget.dart';
 import 'package:ibilling_app/widgets/contracts_card.dart';
 import 'package:provider/provider.dart';
@@ -99,8 +100,13 @@ class _ContractsState extends State<Contracts> {
                     ContractDetails oneContract = newContractList[index];
                     return Column(
                       children: [
-                        ContractsCard(
-                          contractDetails: oneContract,
+                        GestureDetector(
+                          child: ContractsCard(
+                            contractDetails: oneContract,
+                          ),
+                          onTap: (){
+                            Navigator.pushNamed(context, IndividualContractScreen.individualContractPage, arguments: oneContract);
+                          },
                         ),
                         Padding(padding: EdgeInsets.only(bottom: 12)),
                       ],
