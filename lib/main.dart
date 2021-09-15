@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:ibilling_app/provider/contract_provider.dart';
+import 'package:ibilling_app/views/screens/add_contract_screen.dart';
 import 'package:ibilling_app/views/screens/contracts_screen.dart';
 import 'package:ibilling_app/views/screens/filters_screen.dart';
 import 'package:ibilling_app/views/screens/history_screen.dart';
 import 'package:ibilling_app/views/screens/home_page.dart';
+import 'package:ibilling_app/views/screens/new_invoice_screen.dart';
 import 'package:ibilling_app/views/screens/new_screen.dart';
 import 'package:ibilling_app/views/screens/profile_screen.dart';
 import 'package:ibilling_app/views/screens/saved_screen.dart';
@@ -43,7 +45,9 @@ class _MyAppState extends State<MyApp> {
           NewScreen.newRoute: (context) => NewScreen(),
           ProfileScreen.profileRoute: (context) => ProfileScreen(),
           SavedScreen.savedRoute: (context) => SavedScreen(),
-          FiltersScreen.filtersPageRoute: (context) => FiltersScreen()
+          FiltersScreen.filtersPageRoute: (context) => FiltersScreen(),
+          AddContractScreen.addContractPage: (context) => AddContractScreen(),
+          NewInvoiceScreen.newInvoicePage: (context) => NewInvoiceScreen(),
         }
       ),
     );

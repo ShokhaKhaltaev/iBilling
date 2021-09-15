@@ -10,7 +10,6 @@ class LanguageSelection extends StatefulWidget {
     return LanguageSelectionState();
   }
 }
-
 class LanguageSelectionState extends State<LanguageSelection> {
   @override
   void initState() {

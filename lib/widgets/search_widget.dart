@@ -31,6 +31,7 @@ class Search extends SearchDelegate {
   @override
   Widget buildResults(BuildContext context) {
     return Container(
+      color: Colors.transparent,
       child: Center(
         child: Text(
           selectedResult
