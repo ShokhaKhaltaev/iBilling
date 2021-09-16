@@ -4,9 +4,11 @@ import 'package:ibilling_app/models/contract_details.dart';
 import 'package:ibilling_app/models/individual_card_model.dart';
 import 'package:ibilling_app/widgets/contract_extended_card.dart';
 import 'package:ibilling_app/widgets/custom_button.dart';
+import 'package:ibilling_app/widgets/delete_alert.dart';
 
 class IndividualContractScreen extends StatefulWidget {
   static final individualContractPage = '/individual_contract-page';
+  TextEditingController deleteController;
 
   @override
   _InvidualContractScreenState createState() => _InvidualContractScreenState();
@@ -64,7 +66,10 @@ class _InvidualContractScreenState extends State<IndividualContractScreen> {
                           color: Color(0xff561625),
                           buttonColor: Colors.pink,
                           onPressed: (){
-                            Navigator.pop(context);
+                            showDialog(
+                              context: context,
+                              builder: (context) => DeleteAlert(controller: widget.deleteController)
+                            );
                           },
                         )
                     ),
