@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ibilling_app/models/alert_model.dart';
+import 'package:ibilling_app/provider/contract_provider.dart';
+import 'package:provider/provider.dart';
 
 class MyDialogContent extends StatefulWidget {
+
   @override
   _MyDialogContentState createState() => new _MyDialogContentState();
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ibilling_app/constants.dart';
 import 'package:ibilling_app/views/screens/filters_screen.dart';
 import 'package:ibilling_app/widgets/search_widget.dart';
 
@@ -11,10 +13,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSize {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.transparent,
+      backwardsCompatibility: false,
+      systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: AppColors.appBarBottomNav),
+      backgroundColor: AppColors.appBarBottomNav,
       leading: Image.asset('assets/images/logo.png', height: 24,width: 24),
       titleSpacing: 0,
-      title: Text(appBarText, style: TextStyle(fontSize: 18, fontFamily: 'Ubuntu Regular'),),
+      title: Text(appBarText, style: AppTextStyles.appBarTitle,),
       actions: [
         Padding(
           padding: const EdgeInsets.only(right: 15),

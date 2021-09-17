@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:ibilling_app/constants.dart';
 import 'package:ibilling_app/views/screens/add_contract_screen.dart';
 import 'package:ibilling_app/views/screens/new_invoice_screen.dart';
 import 'package:ibilling_app/widgets/invoice_button.dart';
@@ -18,7 +19,7 @@ class NewScreen extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.24,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: Color(0xff2A2A2D),
+            color: AppColors.cardGrey,
             borderRadius: BorderRadius.circular(6),
           ),
           child: Column(

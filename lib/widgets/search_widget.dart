@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ibilling_app/constants.dart';
 import 'package:ibilling_app/models/contract_details.dart';
 import 'package:ibilling_app/provider/contract_provider.dart';
 import 'package:provider/provider.dart';
@@ -8,6 +9,18 @@ class Search extends SearchDelegate {
   String selectedResult;
 
   @override
+  ThemeData appBarTheme(BuildContext context) {
+    return Theme.of(context).copyWith(
+      appBarTheme: AppBarTheme(
+        backgroundColor: Color(0xff000000),
+      ),
+      scaffoldBackgroundColor: Color(0xff000000),
+      textTheme: TextTheme(
+        bodyText1: TextStyle(color: Colors.white),
+        bodyText2: TextStyle(color: Colors.white)
+      )
+    );
+  }
   List<Widget> buildActions(BuildContext context) {
 
     IconButton(

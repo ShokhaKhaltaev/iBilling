@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:ibilling_app/constants.dart';
 import 'custom_button.dart';
 import 'my_dialog_content.dart';
 
@@ -47,7 +48,7 @@ dialogContent(BuildContext context) {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Container(
-            color: Color(0xff2A2A2D),
+            color: AppColors.cardGrey,
             child:  Text('Choose a language', style: TextStyle(fontFamily: 'Ubuntu Medium', fontSize: 16, fontWeight: FontWeight.w700))
         ),
         Flexible(

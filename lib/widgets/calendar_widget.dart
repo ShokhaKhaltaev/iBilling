@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:calendar_timeline/calendar_timeline.dart';
+import 'package:ibilling_app/constants.dart';
 
 class CalendarWidget extends StatefulWidget {
   @override
@@ -37,7 +38,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
       dayColor: Color(0xffD1D1D1),
       dayNameColor: Color(0xFFD1D1D1),
       activeDayColor: Colors.white,
-      activeBackgroundDayColor: Color(0xff00A795),
+      activeBackgroundDayColor: AppColors.lightBlue,
       dotsColor: Color(0xFF333A47),
       selectableDayPredicate: (date) => date.day != 23,
       locale: 'en',

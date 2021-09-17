@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intl/intl.dart';
 
 class DatePickerWidget extends StatelessWidget {
-  final String dateText;
+  final DateTime dateText;
   DatePickerWidget({this.dateText});
 
   @override
@@ -18,7 +19,7 @@ class DatePickerWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(dateText, style: TextStyle(fontSize: 14, color: Color(0xff999999), fontFamily: 'Ubuntu Medium', fontWeight: FontWeight.w500),),
+          Text(DateFormat('dd-MM-yyyy').format(dateText), style: TextStyle(fontSize: 14, color: Color(0xff999999), fontFamily: 'Ubuntu Medium', fontWeight: FontWeight.w500),),
           SvgPicture.asset('assets/icons/Calendar.svg', height: 13, width: 12, color: Color(0xffA5A5A5),)
         ],
       ),

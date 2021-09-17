@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ibilling_app/provider/contract_provider.dart';
+import 'package:ibilling_app/provider/invoice_provider.dart';
 import 'package:ibilling_app/views/screens/add_contract_screen.dart';
 import 'package:ibilling_app/views/screens/contracts_screen.dart';
 import 'package:ibilling_app/views/screens/filters_screen.dart';
@@ -24,8 +25,11 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<ContractList>(
-      create: (context) => ContractList(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ContractList>(create: (context) => ContractList()),
+        ChangeNotifierProvider<InvoiceList>(create: (context) => InvoiceList())
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',

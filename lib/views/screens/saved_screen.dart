@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:ibilling_app/constants.dart';
 import 'package:ibilling_app/models/contract_details.dart';
 import 'package:ibilling_app/provider/contract_provider.dart';
 import 'package:ibilling_app/widgets/contracts_card.dart';
@@ -26,10 +27,11 @@ class SavedScreen extends StatelessWidget {
                   children: [
                     SvgPicture.asset('assets/icons/Bookmark.svg', height: 74, width: 66, color: Color(0xff2A2A2D)),
                     SizedBox(height: 15),
-                    Text('No saved contracts', style: TextStyle(fontFamily: 'Ubuntu Medium', fontWeight: FontWeight.w600, color: Color(0xff2A2A2D), fontSize: 14))
+                    Text('No saved contracts', style: AppTextStyles.emptyList)
                   ],
                 ),
               ),
+
             ),
           ) :
           Expanded(

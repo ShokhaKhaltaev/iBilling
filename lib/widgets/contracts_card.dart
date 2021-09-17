@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ibilling_app/constants.dart';
 import 'package:ibilling_app/models/contract_details.dart';
 import 'package:intl/intl.dart';
 
@@ -49,7 +50,7 @@ class ContractsCard extends StatelessWidget {
       padding: EdgeInsets.all(12),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Color(0xff2A2A2D),
+        color: AppColors.cardGrey,
         borderRadius: BorderRadius.circular(6),
       ),
       child: Column(
@@ -58,7 +59,7 @@ class ContractsCard extends StatelessWidget {
               Row(children: [
                 SvgPicture.asset('assets/icons/Paper.svg', height: 18,width: 18),
                 SizedBox(width: 6),
-                Text('№ ${contractDetails.lastInvoice}', style: TextStyle(fontSize: 14, fontFamily: 'Ubuntu Medium', fontWeight: FontWeight.bold)),
+                Text('№ ${contractDetails.lastInvoice}', style: AppTextStyles.invoiceNumber),
                 Spacer(),
                 statusFunc()
               ],),
@@ -66,8 +67,8 @@ class ContractsCard extends StatelessWidget {
             RichText(
               text: TextSpan(
                 children: <TextSpan>[
-                  TextSpan(text: 'Fish: ', style: TextStyle(fontFamily: 'Ubuntu Medium', fontWeight: FontWeight.w500, fontSize: 14)),
-                  TextSpan(text: ' ${contractDetails.fishName}', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xff999999), fontFamily: 'Ubuntu Regular'))
+                  TextSpan(text: 'Fish: ', style: AppTextStyles.cardTitles),
+                  TextSpan(text: ' ${contractDetails.fishName}', style: AppTextStyles.contractDetails)
                 ]
               ),
             ),
@@ -75,8 +76,8 @@ class ContractsCard extends StatelessWidget {
             RichText(
               text: TextSpan(
                   children: <TextSpan>[
-                    TextSpan(text: 'Amount: ', style: TextStyle(fontFamily: 'Ubuntu Medium', fontWeight: FontWeight.w500, fontSize: 14)),
-                    TextSpan(text: ' ${contractDetails.amount}', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xff999999), fontFamily: 'Ubuntu Regular'))
+                    TextSpan(text: 'Amount: ', style: AppTextStyles.cardTitles),
+                    TextSpan(text: ' ${contractDetails.amount} UZS', style: AppTextStyles.contractDetails)
                   ]
               ),
             ),
@@ -84,8 +85,8 @@ class ContractsCard extends StatelessWidget {
             RichText(
               text: TextSpan(
                   children: <TextSpan>[
-                    TextSpan(text: 'Last Invoice: ', style: TextStyle(fontFamily: 'Ubuntu Medium', fontWeight: FontWeight.w500, fontSize: 14)),
-                    TextSpan(text: ' ${contractDetails.lastInvoice}', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xff999999), fontFamily: 'Ubuntu Regular'))
+                    TextSpan(text: 'Last Invoice: ', style: AppTextStyles.cardTitles),
+                    TextSpan(text: ' ${contractDetails.lastInvoice}', style: AppTextStyles.contractDetails)
                   ]
               ),
             ),
@@ -95,7 +96,7 @@ class ContractsCard extends StatelessWidget {
                 RichText(
                   text: TextSpan(
                       children: <TextSpan>[
-                        TextSpan(text: 'Number of invoices: ', style: TextStyle(fontFamily: 'Ubuntu Medium', fontWeight: FontWeight.w500, fontSize: 14)),
+                        TextSpan(text: 'Number of invoices: ', style: AppTextStyles.cardTitles),
                         TextSpan(text: ' ${contractDetails.numOfInvoices}', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xff999999), fontFamily: 'Ubuntu Regular'))
                       ]
                   ),

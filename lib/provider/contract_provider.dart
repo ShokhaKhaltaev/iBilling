@@ -21,6 +21,19 @@ class ContractList with ChangeNotifier{
     notifyListeners();
   }
 
+  String language = 'English (USA)';
+  String imagePath = 'assets/images/english.png';
+
+  void changeLanguage(String lang){
+    language = lang;
+    notifyListeners();
+  }
+
+  void changeImagePath(String path){
+    imagePath = path;
+    notifyListeners();
+  }
+
   List<ContractDetails> get contracts => _contracts;
 
 }

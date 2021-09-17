@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ibilling_app/constants.dart';
+import 'package:ibilling_app/views/screens/home_page.dart';
 import 'custom_button.dart';
 
 class DeleteAlert extends StatelessWidget {
@@ -13,7 +15,7 @@ class DeleteAlert extends StatelessWidget {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(6))
       ),
-      backgroundColor: Color(0xff2A2A2D),
+      backgroundColor: AppColors.cardGrey,
       title: Container(
         width: MediaQuery.of(context).size.width * 0.95,
         child: Center(
@@ -51,7 +53,7 @@ class DeleteAlert extends StatelessWidget {
                     color: Color(0xff561625),
                     buttonColor: Colors.pink,
                     onPressed: (){
-
+                      Navigator.pop(context);
                     },
                   )
               ),
@@ -62,7 +64,7 @@ class DeleteAlert extends StatelessWidget {
                     color: Color(0xff561625),
                     buttonColor: Colors.white,
                     onPressed: (){
-
+                      Navigator.pushNamed(context, HomePage.homePageRoute);
                     },
                   )
               )

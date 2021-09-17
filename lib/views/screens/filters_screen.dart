@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grouped_buttons/grouped_buttons.dart';
+import 'package:ibilling_app/constants.dart';
 import 'package:ibilling_app/views/screens/home_page.dart';
 import 'package:ibilling_app/widgets/custom_bottom_navbar.dart';
 import 'package:ibilling_app/widgets/custom_button.dart';
@@ -16,12 +18,16 @@ class FiltersScreen extends StatefulWidget {
 
 class _FiltersScreenState extends State<FiltersScreen> {
   List<String> _checked = [];
+  DateTime fromDate = DateTime(2021, 09, 1);
+  DateTime toDate = DateTime(2021, 09, 12);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff141416),
+        backwardsCompatibility: false,
+        systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: AppColors.appBarBottomNav),
+        backgroundColor: AppColors.appBarBottomNav,
         centerTitle: true,
         title: Text('Filters', style: TextStyle(fontSize: 20, fontFamily: 'Ubuntu Medium', fontWeight: FontWeight.w500),),
         leading: IconButton(
@@ -44,49 +50,50 @@ class _FiltersScreenState extends State<FiltersScreen> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Status', style: TextStyle(fontWeight: FontWeight.w700, fontFamily: 'Ubuntu Medium', fontSize: 14, color: Color(0xff999999))),
+                Text('Status', style: AppTextStyles.headerStyle),
                 SizedBox(height: 22),
-                CheckboxGroup(
-                  labels: <String>[
-                    "Paid",
-                    "In process",
-                    "Rejected by IQ",
-                    "Rejected by Payme",
-                  ],
-                  checked: _checked,
-                  onChange: (bool isChecked, String label, int index) {
-                    print("isChecked: $isChecked   label: $label  index: $index");
-                    widget.checkBoxValue = label;
-                    print(widget.checkBoxValue);
-                  },
-                  activeColor: Colors.white,
-                  checkColor: Colors.black,
-                  itemBuilder: (Checkbox cb, Text txt, int i){
-                    return Row(
-                      children: <Widget>[
-                        Row(
-                          children: [
-                            cb,
-                            SizedBox(width: 8),
-                            txt,
-                          ],
-                        ),
-                      ],
-                    );
-                  },
-                  onSelected: (List selected) => setState(() {
-                    if (selected.length > 1) {
-                      selected.removeAt(0);
-                      print('selected length  ${selected.length}');
-                    } else {
-                      print("only one");
-                    }
-                    _checked = selected;
-                    print('Checked: $_checked');
-                  }),
+                Theme(
+                  data: Theme.of(context).copyWith(
+                    unselectedWidgetColor: AppColors.cardGrey,
+                  ),
+                  child: CheckboxGroup(
+                    labels: <String>[
+                      "Paid",
+                      "In process",
+                      "Rejected by IQ",
+                      "Rejected by Payme",
+                    ],
+                    checked: _checked,
+                    onChange: (bool isChecked, String label, int index) {
+                      widget.checkBoxValue = label;
+                    },
+                    activeColor: Colors.white,
+                    checkColor: Colors.black,
+                    itemBuilder: (Checkbox cb, Text txt, int i){
+                      return Row(
+                        children: <Widget>[
+                          Row(
+                            children: [
+                              cb,
+                              SizedBox(width: 8),
+                              txt,
+                            ],
+                          ),
+                        ],
+                      );
+                    },
+                    onSelected: (List selected) => setState(() {
+                      if (selected.length > 1) {
+                        selected.removeAt(0);
+                      } else {
+                      }
+                      _checked = selected;
+                      print('Checked: $_checked');
+                    }),
+                  ),
                 ),
                 SizedBox(height: 30),
-                Text('Date', style: TextStyle(fontWeight: FontWeight.w700, fontFamily: 'Ubuntu Medium', fontSize: 14, color: Color(0xff999999))),
+                Text('Date', style: AppTextStyles.headerStyle),
                 SizedBox(height: 22),
                 Container(
                   width: MediaQuery.of(context).size.width*0.7,
@@ -94,7 +101,12 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      DatePickerWidget(dateText: 'From'),
+                      InkWell(
+                        onTap: (){
+                          _selectFromDate(context);
+                        },
+                          child: DatePickerWidget(dateText: fromDate)
+                      ),
                       Padding(
                         padding: const EdgeInsets.only(top: 18),
                         child: Container(
@@ -103,7 +115,12 @@ class _FiltersScreenState extends State<FiltersScreen> {
                           color: Color(0xffD1D1D1),
                         ),
                       ),
-                      DatePickerWidget(dateText: 'To')
+                      InkWell(
+                          child: DatePickerWidget(dateText: toDate),
+                        onTap: (){
+                          _selectToDate(context);
+                        },
+                      )
                     ],
                   ),
                 )
@@ -135,7 +152,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                           color: Color(0xff00A795),
                           buttonColor: Colors.white,
                           onPressed: (){
-
+                            Navigator.pushNamed(context, HomePage.homePageRoute);
                           },
                         )
                       )
@@ -149,4 +166,31 @@ class _FiltersScreenState extends State<FiltersScreen> {
       ),
     );
   }
+
+  _selectFromDate(BuildContext context) async {
+    final DateTime picked = await showDatePicker(
+      context: context,
+      initialDate: fromDate, // Refer step 1
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2025),
+    );
+    if (picked != null && picked != fromDate)
+      setState(() {
+        fromDate = picked;
+      });
+  }
+
+  _selectToDate(BuildContext context) async {
+    final DateTime picked = await showDatePicker(
+      context: context,
+      initialDate: toDate, // Refer step 1
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2025),
+    );
+    if (picked != null && picked != toDate)
+      setState(() {
+        toDate = picked;
+      });
+  }
+
 }

@@ -9,7 +9,15 @@ class FormTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: TextStyle(color: Colors.white),
       controller: controller,
+      validator: (value){
+        if(value.isNotEmpty){
+          return null;
+        }else{
+          return 'Input field should be filled';
+        }
+      },
       decoration: InputDecoration(
         contentPadding: EdgeInsets.all(5),
         filled: true,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ibilling_app/constants.dart';
 import 'package:ibilling_app/views/screens/contracts_screen.dart';
 import 'package:ibilling_app/views/screens/history_screen.dart';
 import 'package:ibilling_app/views/screens/new_screen.dart';
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> {
         bottomNavigationBar: SizedBox(
           height: 58,
           child: BottomNavigationBar(
-            backgroundColor: Color(0xff141416),
+            backgroundColor: AppColors.appBarBottomNav,
             onTap: onTabTapped,
             currentIndex: _currentIndex,
             selectedItemColor: Colors.white,
